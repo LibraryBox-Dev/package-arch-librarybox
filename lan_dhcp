@@ -1,0 +1,7 @@
+Description="Generic profile for lan with DHCP"
+Connection=ethernet
+Interface=eth0
+IP=dhcp
+#IP6=dhcp
+
+ForceConnect=yes

@@ -1,0 +1,21 @@
+Description="General bridge interface for PirateBox"
+Connection=bridge
+Interface=br0
+BindsToInterfaces=()
+ForceConnect=yes
+#Enabling DHCP stuff
+SkipForwardingDelay=yes
+
+IP=static
+
+Address=(192.168.1.1/24)
+
+######
+#  TODO:
+#   IPv6 enabling
+IP6=no
+# IP6=static
+# Address=()
+
+
+

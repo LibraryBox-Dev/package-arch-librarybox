@@ -1,0 +1,10 @@
+Description="Includes the Ethernet device per default to the PirateBox-Bridge"
+Connection=ethernet
+Interface=eth0
+BindsToInterfaces=(eth0)
+
+ExecUpPost="brctl addif br0 eth0"
+ExecDownPre="brctl delif br0 eth0" 
+
+IP=no
+IP6=no
