@@ -83,17 +83,3 @@ package(){
 	cp   piratebox_bridge $pkgdir/etc/netctl
 }
 
-post_install(){
-	groupadd nogroup
-	usermod -a -G nogroup nobody
-	
-	netctl enable piratebox_bridge
-	# TODO disable config, which is already active 
-	netctl enable lan_piratebox_bridge
-
-	#enable cron
-	#enable avahi ?!
-
-	ln -s /usr/bin/python2 /usr/bin/python
-	
-}
