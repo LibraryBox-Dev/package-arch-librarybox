@@ -1,0 +1,15 @@
+post_install(){
+        grep -q nogroup /etc/group ||  groupadd nogroup
+        usermod -a -G nogroup nobody
+
+        netctl enable piratebox_bridge
+        # TODO disable config, which is already active 
+        netctl enable lan_piratebox_bridge
+
+	systemctl enable librarybox.service
+        #enable cron
+        #enable avahi ?!
+
+        [ ! -e /usr/bin/python ] &&  ln -s /usr/bin/python2 /usr/bin/python
+}
+

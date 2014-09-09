@@ -1,7 +1,7 @@
 # Maintainer: Matthias Strubel <matthias.strubel@aod-rpg.de>
 pkgname=librarybox-full
 pkgver=2.1.0
-pkgrel=2
+pkgrel=3
 #epoch=0
 pkgdesc="Turns system into file distributing hotspot. Package used for creating the prepared images"
 arch=('any')
@@ -42,6 +42,7 @@ conflicts=()
 replaces=()
 backup=()
 options=()
+install=librarybox-full.install
 
 #full url source=(ftp://ftp.gnu.org/gnu/$pkgname/$pkgname-$pkgver.tar.gz)
 source=(librarybox-$pkgver.tar.gz
@@ -60,6 +61,7 @@ prepare(){
 	sed 's|USE_DNSMASQ="no"|USE_DNSMASQ="yes"|' -i conf/piratebox.conf
 #
 	sed 's|DNSMASQ_INTERFACE="wlan0"|DNSMASQ_INTERFACE="br0"|' -i conf/piratebox.conf
+	sed 's|BRIDGE="br-lan"|BRIDGE="br0"|' -i conf/piratebox.conf
 	sed 's:NET=192.168.77:NET=192.168.1:'  -i conf/piratebox.conf
 #
 	sed 's:start-stop-daemon  \-S \-q \-x radvd:start-stop-daemon  \-S \-q \-x /usr/bin/radvd:' -i init.d/piratebox_alt
