@@ -1,7 +1,7 @@
 # Maintainer: Matthias Strubel <matthias.strubel@aod-rpg.de>
 pkgname=librarybox-full
 pkgver=2.1.0
-pkgrel=3
+pkgrel=4
 #epoch=0
 pkgdesc="Turns system into file distributing hotspot. Package used for creating the prepared images"
 arch=('any')
@@ -65,6 +65,9 @@ prepare(){
 	sed 's:NET=192.168.77:NET=192.168.1:'  -i conf/piratebox.conf
 #
 	sed 's:start-stop-daemon  \-S \-q \-x radvd:start-stop-daemon  \-S \-q \-x /usr/bin/radvd:' -i init.d/piratebox_alt
+
+	sed 's|date  `c|date -s `c|' -i bin/timesave.sh
+	sed 's|date +%C%g%m%d%H%M|date|' -i bin/timesave.sh
 }
 
 package(){
