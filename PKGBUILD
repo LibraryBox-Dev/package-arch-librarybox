@@ -1,7 +1,7 @@
 # Maintainer: Matthias Strubel <matthias.strubel@aod-rpg.de>
 pkgname=librarybox-full
 pkgver=2.1.0
-pkgrel=4
+pkgrel=5
 #epoch=0
 pkgdesc="Turns system into file distributing hotspot. Package used for creating the prepared images"
 arch=('any')

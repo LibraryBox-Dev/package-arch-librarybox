@@ -11,5 +11,10 @@ post_install(){
         #enable avahi ?!
 
         [ ! -e /usr/bin/python ] &&  ln -s /usr/bin/python2 /usr/bin/python
+
+	#modify php.ini to enable executing scripts @ librarybox folder
+	sed -i /etc/php/php.ini 's|open_basedir =|;open_basedir =|'
+	#enable sqlite-extention
+	sed -i /etc/php/php.ini 's|;extension=pdo_sqlite.so|extension=pdo_sqlite.so|' 
 }
 
